@@ -1,0 +1,55 @@
+agent-marketplace/
+├── contracts/                   # Solidity smart contracts
+│   ├── AgentFactory.sol
+│   ├── AgentNFT.sol
+│   ├── ExecutionEscrow.sol
+│   ├── StakingManager.sol
+│   ├── ReputationOracle.sol
+│   └── utils/
+│       └── Structs.sol
+├── agentsdk/                    # Python SDK to publish AI agents
+│   ├── cli.py                   # CLI tool to deploy agents to marketplace
+│   ├── dockerize.py             # Wrap user code into Docker container
+│   ├── schema_generator.py      # Extract I/O schema from function signatures
+│   ├── templates/
+│   │   ├── agent_template.py
+│   │   └── Dockerfile
+│   └── utils/
+│       └── ipfs_uploader.py
+├── frontend/                    # Next.js Web App (Tailwind + Wagmi + RainbowKit)
+│   ├── app/
+│   │   ├── dashboard/
+│   │   ├── deploy/
+│   │   ├── marketplace/
+│   │   └── layout.tsx
+│   ├── components/
+│   │   ├── AgentCard.tsx
+│   │   ├── AgentDeployForm.tsx
+│   │   └── WalletConnector.tsx
+│   ├── lib/
+│   │   ├── contract.ts          # Wagmi contract calls
+│   │   ├── ipfs.ts              # IPFS helper
+│   │   └── schemaParser.ts
+│   ├── public/
+│   └── tailwind.config.js
+├── infra/                       # DevOps, Compute, Execution Layer
+│   ├── docker/
+│   │   ├── executor/            # Executes agent jobs
+│   │   │   ├── handler.py
+│   │   │   └── Dockerfile
+│   ├── ipfs/                    # Local IPFS node + pinning service
+│   ├── logging/                 # Execution logs and audit trail
+│   └── compose.yaml             # Unified Docker Compose for dev
+├── scripts/                     # Deployment and setup scripts
+│   ├── deploy_contracts.ts
+│   ├── seed_agents.ts
+│   └── fund_accounts.ts
+├── test/                        # Smart contract test suite
+│   ├── AgentFactory.test.ts
+│   ├── AgentNFT.test.ts
+│   └── ExecutionEscrow.test.ts
+├── .env.example                 # Environment variable template
+├── .gitignore
+├── README.md
+├── LICENSE
+└── hardhat.config.ts
